@@ -5,7 +5,7 @@ const tourPackages = [
         title: "Kasi Trips",
         destinations: "Ayodhya, Prayagraj, Varanasi, Triveni Sangamam, Gaya, Bodh Gaya",
         duration: "5 Days/4 Nights",
-        price: 16800,
+        price: 16400,
         category: "pilgrimage",
         image: "https://images.unsplash.com/photo-1609920658906-8223bd289001?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2nd class sleeper train", "Deluxe A/C room double sharing", "Veg food", "A/C vehicle"],
@@ -17,11 +17,11 @@ const tourPackages = [
         title: "Chardham Yatra",
         destinations: "New Delhi, Haridwar, Rishikesh, Yamunotri, Gangotri, Kedarnath, Badrinath",
         duration: "10 Nights/11 Days",
-        price: 28000,
+        price: 27000,
         category: "pilgrimage",
         image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["Deluxe A/C rooms", "Good veg food", "A/C vehicle"],
-        excludes: ["Train fare Chennai to Delhi", "Horse, dolly etc."],
+        excludes: ["Train fare Chennai to Delhi AND Delhi to Chennai", "Horse, dolly etc."],
         featured: true
     },
     {
@@ -41,11 +41,11 @@ const tourPackages = [
         title: "Nepal Trips",
         destinations: "Banaras, Lumbini, Pokhara, Katmandu, Mukthinath, Manakamana, Janakpur",
         duration: "9 Nights/10 Days",
-        price: 29000,
+        price: 27500,
         category: "international",
         image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2-star deluxe A/C rooms", "Good veg food", "Volvo A/C Bus"],
-        excludes: ["Train fare", "Horse, dolly etc."],
+        excludes: ["Train fare / Flight fare", "Horse, dolly etc."],
         featured: true
     },
     {
@@ -63,19 +63,19 @@ const tourPackages = [
     {
         id: 6,
         title: "Amarnath Yatra by Helipad",
-        destinations: "New Delhi, Amarnath Cave",
+        destinations: "New Delhi, srinagar, sonamarg, jammu, Amarnath Cave | New Delhi to New Delhi",
         duration: "6 Nights/7 Days",
         price: 29600,
         category: "pilgrimage",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2-star deluxe A/C rooms", "Very good veg food", "A/C vehicle", "Helicopter service"],
-        excludes: ["Personal expenses"],
+        excludes: ["Personal expenses, Horse, dolly"],
         featured: false
     },
     {
         id: 7,
         title: "Amarnath Yatra by Trekking",
-        destinations: "New Delhi, Pahalgham, Chandawari, Seshnag, Amarnath Cave",
+        destinations: "New Delhi, Pahalgham, Chandawari, Seshnag, Amarnath Cave | New Delhi to New Delhi",
         duration: "7 Nights/8 Days",
         price: 14500,
         category: "adventure",
@@ -86,38 +86,38 @@ const tourPackages = [
     },
     {
         id: 8,
-        title: "Kashmir Trips Package (8 Days)",
-        destinations: "New Delhi, Katra, Vaishnavodevi, Shivkori, Pahalgam, Gulmarg, Srinagar",
+        title: "Kashmir Trips Package (8 Days, 7 Nights)",
+        destinations: "New Delhi, Katra, Vaishnavodevi, Shivkori, Pahalgam, Gulmarg, Srinagar | New Delhi to New Delhi",
         duration: "7 Nights/8 Days",
-        price: 18900,
+        price: 18400,
         category: "adventure",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2-star deluxe A/C rooms", "Good veg food", "A/C vehicle"],
-        excludes: ["Entrance tickets", "Rope car", "Boating", "Horse riding"],
+        excludes: ["Entrance tickets", "Rope car", "Boating", "Horse riding", "Train fare / Flight fare"],
         featured: true
     },
     {
         id: 9,
         title: "Kashmir Trip Package (6 Days)",
-        destinations: "New Delhi, Jammu, Srinagar, Pahalgam, Gulmarg",
+        destinations: "New Delhi, Jammu, Srinagar, Pahalgam, Gulmarg | New Delhi to New Delhi",
         duration: "5 Nights/6 Days",
-        price: 16900,
+        price: 16400,
         category: "adventure",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2-star deluxe A/C rooms", "Very good veg food", "A/C bus"],
-        excludes: ["Entrance fees", "Rope car", "Boating", "Union vehicles"],
+        excludes: ["Entrance fees", "Rope car", "Boating", "Union vehicles", "Train fare / Flight fare"],
         featured: false
     },
     {
         id: 10,
         title: "Kullu Manali Trip",
-        destinations: "New Delhi, Kurukshetra, Chandigarh, Atul Tunnel, Manali, Snow Point, Amritsar",
+        destinations: "New Delhi, Kurukshetra, Chandigarh, Atul Tunnel, Manali, Snow Point, Amritsar | New Delhi to New Delhi",
         duration: "5 Nights/6 Days",
         price: 17400,
         category: "adventure",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2-star deluxe A/C rooms", "Good veg food", "A/C vehicle"],
-        excludes: ["Entrance fee", "Games fee", "Horses", "Boating"],
+        excludes: ["Entrance fee", "Games fee", "Horses", "Boating", "Train fare / Flight fare"],
         featured: false
     },
     {
@@ -137,11 +137,11 @@ const tourPackages = [
         title: "Sikkim - Darjeeling Trip",
         destinations: "Kolkata, Siluguri, Darjeeling, Sikkim (Gangtok), Tsangu Lake, Nathulla Pass",
         duration: "6 Nights/7 Days",
-        price: 22000,
+        price: 18900,
         category: "adventure",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2-star deluxe accommodation", "Very good veg food", "A/C vehicle"],
-        excludes: ["Games fees", "Entry fees", "Boating", "Special dharshan"],
+        excludes: ["Games fees", "Entry fees", "Boating", "Special dharshan", "Train fare / Flight fare"],
         featured: false
     },
     {
@@ -149,11 +149,11 @@ const tourPackages = [
         title: "Goa Trips",
         destinations: "North Goa, South Goa",
         duration: "3 Nights/4 Days",
-        price: 15000,
+        price: 10800,
         category: "beach",
         image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe accommodation", "Very good veg food", "A/C vehicle"],
-        excludes: ["Games fees", "Entry fees", "Water games"],
+        includes: ["2-star deluxe accommodation", "Very good veg food and non veg food", "A/C vehicle"],
+        excludes: ["Games fees", "Entry fees", "Water games", "Train fare / Flight fare"],
         featured: false
     },
     {
@@ -161,11 +161,11 @@ const tourPackages = [
         title: "Bhutan Trip",
         destinations: "Thimphu, Paro, Punakha",
         duration: "6 Nights/7 Days",
-        price: 35000,
+        price: 25400,
         category: "international",
         image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe accommodation", "Very good veg food", "A/C vehicle"],
-        excludes: ["Games fees", "Entry fees", "Personal expenses"],
+        includes: ["2-star deluxe accommodation", "Very good veg food and Non veg food Breakfast & Dinner", "A/C vehicle"],
+        excludes: ["Games fees", "Entry fees", "Personal expenses", "Train fare / Flight fare"],
         featured: false
     },
     {
@@ -176,8 +176,8 @@ const tourPackages = [
         price: 16000,
         category: "beach",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe hotel", "Breakfast and dinner", "A/C vehicle"],
-        excludes: ["Water games", "Scuba", "Flight fare Chennai to Port Blair"],
+        includes: ["2-star deluxe hotel", "Very good veg food and Non veg food Breakfast and dinner", "A/C vehicle"],
+        excludes: ["Water games", "Scuba", "Flight fare Chennai to Port Blair", "Train fare / Flight fare"],
         featured: true
     },
     {
@@ -185,11 +185,11 @@ const tourPackages = [
         title: "Lakshadweep Trip",
         destinations: "Agatti, Andham Beach, Lagoon Beach, Kalpitty Island, Thinnakara Island",
         duration: "3 Nights/4 Days",
-        price: 12500,
+        price: 13500,
         category: "beach",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["Normal deluxe A/C rooms", "Veg & 2 non-veg meals", "A/C vehicle", "Glass boating"],
-        excludes: ["Flight fares Kochi to Kochi", "Water games"],
+        excludes: ["Flight fares Kochi to Kochi", "Water games", "Train fare / Flight fare"],
         featured: false
     },
     {
@@ -197,11 +197,11 @@ const tourPackages = [
         title: "Thailand Trips",
         destinations: "Pattaya, Bangkok",
         duration: "4 Nights/5 Days",
-        price: 45000,
+        price: 18000,
         category: "international",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["3-star hotel", "Breakfast and dinner", "A/C vehicle"],
-        excludes: ["Flight fare", "Afternoon lunch"],
+        includes: ["3-star hotel", "Very good veg food and Non veg food Breakfast, Lunch and dinner", "A/C vehicle"],
+        excludes: ["Flight fare", "Afternoon lunch", "Train fare / Flight fare"],
         featured: false
     },
     {
@@ -209,7 +209,7 @@ const tourPackages = [
         title: "South Tamil Nadu Pilgrimage",
         destinations: "Tirupathi, Kalahasthi, Tiruttani, Kancheepuram, Tiruvannamalai, Chidambaram, Madurai, Rameswaram",
         duration: "Variable",
-        price: 18000,
+        price: 0,
         category: "pilgrimage",
         image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2-star hotels EP Plan", "A/C vehicle"],
@@ -219,12 +219,12 @@ const tourPackages = [
     {
         id: 19,
         title: "Kerala Package",
-        destinations: "Ernakulam, Alleppey Boat House",
-        duration: "2 Nights/3 Days",
-        price: 14000,
+        destinations: "Ernakulam, Alleppey House Boat, Trivandrum, Kovalam and Varkala ",
+        duration: "4 Nights/5 Days",
+        price: 18000,
         category: "adventure",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["Boat house accommodation", "Meals", "A/C vehicle"],
+        includes: ["Boat house accommodation", "Breakfast and Dinner", "Meals", "A/C vehicle"],
         excludes: ["Personal expenses"],
         featured: false
     },
@@ -236,7 +236,7 @@ const tourPackages = [
         price: 13500,
         category: "international",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["Hotel accommodation", "Breakfast", "Local transport"],
+        includes: ["Hotel accommodation", "Breakfast and Dinner very good veg food and Non veg food", "Local transport"],
         excludes: ["Flight fare", "Lunch and dinner"],
         featured: false
     },
@@ -248,11 +248,57 @@ const tourPackages = [
         price: 0,
         category: "international",
         image: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["3* Stay", "Veg Food", "A/C Transport"],
+        includes: ["3* Stay", "Breakfast and Dinner very good veg food and Non veg food", "A/C Transport"],
         excludes: ["Flight fare", "Personal expenses"],
         featured: false
     }
 ];
+
+// Map local images from img/ folder to packages based on title/ID
+function assignLocalImages() {
+    const idImageMap = {
+        6: 'img/Amarnath snow lingam.png',
+        7: 'img/Amarnath-Yatra-2.png',
+        8: 'img/Srinagar dal lake.png',
+        9: 'img/Dal lake.png'
+    };
+
+    const keywordImageMap = [
+        { key: 'kasi', file: 'img/Kasi gaya.png' },
+        { key: 'chardham', file: 'img/Badrinath Temple.png' },
+        { key: 'mantralaya', file: 'img/Sri Ragavendra.png' },
+        { key: 'shiridi', file: 'img/Shiridi.png' },
+        { key: 'nepal', file: 'img/Nepal Kathmandu.png' },
+        { key: 'dwaraka', file: 'img/Dwaraka.png' },
+        { key: 'pancha dwaraka', file: 'img/Dwaraka.png' },
+        { key: 'kullu manali', file: 'img/Manali snow point.png' },
+        { key: 'rajasthan', file: 'img/Jaisalmer desert 1.png' },
+        { key: 'sikkim', file: 'img/Sikkim Tsomgo Lake.png' },
+        { key: 'darjeeling', file: 'img/Sikkim Tsomgo Lake.png' },
+        { key: 'goa', file: 'img/Goa Calangute Beach.png' },
+        { key: 'bhutan', file: 'img/Buddha golden statue.png' },
+        { key: 'andaman', file: 'img/Andhaman port blair.png' },
+        { key: 'lakshadweep', file: 'img/Lakshadweep Islands.png' },
+        { key: 'thailand', file: 'img/pattaya-beach.png' },
+        { key: 'south tamil nadu', file: 'img/Rameshwaram.png' },
+        // Provisional choices when exact images are not available
+        { key: 'kerala', file: 'img/Bull lake.png' },
+        { key: 'bali', file: 'img/North goa beach.png' }
+    ];
+
+    tourPackages.forEach(pkg => {
+        if (idImageMap[pkg.id]) {
+            pkg.image = idImageMap[pkg.id];
+            return;
+        }
+
+        const title = pkg.title.toLowerCase();
+        const match = keywordImageMap.find(m => title.includes(m.key));
+        if (match) {
+            pkg.image = match.file;
+        }
+    });
+}
 
 // Global variables
 let filteredPackages = [...tourPackages];
@@ -265,6 +311,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize the application
 function initializeApp() {
+    // Ensure local images are used where available
+    assignLocalImages();
     loadAllPackages();
     setupEventListeners();
     setupNavigation();
