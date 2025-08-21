@@ -677,6 +677,33 @@ body {
     line-height: 1.8;
 }
 
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem 1rem;
+    margin-top: 1.25rem;
+}
+
+.about-highlights .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+.about-highlights .highlight-item i {
+    color: #e74c3c;
+}
+
+.about-highlights .highlight-item span {
+    color: #333;
+    font-weight: 500;
+}
+
 .about-stats {
     display: flex;
     gap: 1.5rem;
