@@ -111,11 +111,10 @@ body {
 
 /* Helicopter gentle hover mid-right */
 .anim-chopper-img {
-    top: 26%;
-    left: -25%;
-    width: 320px; /* same scale as before */
-    transform: rotate(0deg);
-    animation: planeAcross 22s linear infinite; /* move across like plane */
+    top: 40%;
+    right: 8%;
+    width: 320px; /* reduced one step */
+    animation: hoverFloat 3.6s ease-in-out infinite;
 }
 
 /* Train running along the bottom */
