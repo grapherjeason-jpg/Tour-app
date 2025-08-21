@@ -1,744 +1,1319 @@
-// Tour packages data
-const tourPackages = [
-    {
-        id: 1,
-        title: "Kasi Trips",
-        destinations: "Ayodhya, Prayagraj, Varanasi, Triveni Sangamam, Gaya, Bodh Gaya",
-        duration: "5 Days/4 Nights",
-        price: 16400,
-        category: "pilgrimage",
-        image: "https://images.unsplash.com/photo-1609920658906-8223bd289001?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2nd class sleeper train", "Deluxe A/C room double sharing", "Veg food", "A/C vehicle"],
-        excludes: ["Special Dharshan tickets", "Food in trains"],
-        featured: true
-    },
-    {
-        id: 2,
-        title: "Chardham Yatra",
-        destinations: "New Delhi, Haridwar, Rishikesh, Yamunotri, Gangotri, Kedarnath, Badrinath",
-        duration: "10 Nights/11 Days",
-        price: 27000,
-        category: "pilgrimage",
-        image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["Deluxe A/C rooms", "Good veg food", "A/C vehicle"],
-        excludes: ["Train fare Chennai to Delhi AND Delhi to Chennai", "Horse, dolly etc."],
-        featured: true
-    },
-    {
-        id: 3,
-        title: "Mantralaya-Shiridi Trips",
-        destinations: "Mantralayam, Panchamukhi, Bitchalaya, Solapur, Tuljapur, Siddeswara, Shiridi",
-        duration: "5 Nights/6 Days",
-        price: 12800,
-        category: "pilgrimage",
-        image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2nd class sleeper train", "Good veg food", "A/C Bus 2/2-Seater", "Deluxe A/C rooms"],
-        excludes: ["Special Dharshan Aarthis", "Food in trains"],
-        featured: false
-    },
-    {
-        id: 4,
-        title: "Nepal Trips",
-        destinations: "Banaras, Lumbini, Pokhara, Katmandu, Mukthinath, Manakamana, Janakpur",
-        duration: "9 Nights/10 Days",
-        price: 27500,
-        category: "international",
-        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe A/C rooms", "Good veg food", "Volvo A/C Bus"],
-        excludes: ["Train fare / Flight fare", "Horse, dolly etc."],
-        featured: true
-    },
-    {
-        id: 5,
-        title: "Pancha Dwaraka Trip",
-        destinations: "Ahmedabad, Dwarakish Temple, Balahanuman Temple, Bet Dwaraka, Nageshwar, Somnath",
-        duration: "7 Nights/8 Days",
-        price: 20600,
-        category: "pilgrimage",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe A/C rooms", "Good veg food", "A/C vehicle"],
-        excludes: ["Train fares", "Food in trains"],
-        featured: false
-    },
-    {
-        id: 6,
-        title: "Amarnath Yatra by Helipad",
-        destinations: "New Delhi, srinagar, sonamarg, jammu, Amarnath Cave | New Delhi to New Delhi",
-        duration: "6 Nights/7 Days",
-        price: 29600,
-        category: "pilgrimage",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe A/C rooms", "Very good veg food", "A/C vehicle", "Helicopter service"],
-        excludes: ["Personal expenses, Horse, dolly"],
-        featured: false
-    },
-    {
-        id: 7,
-        title: "Amarnath Yatra by Trekking",
-        destinations: "New Delhi, Pahalgham, Chandawari, Seshnag, Amarnath Cave | New Delhi to New Delhi",
-        duration: "7 Nights/8 Days",
-        price: 14500,
-        category: "adventure",
-        image: "https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["Tents accommodation", "Room in Jammu & Delhi"],
-        excludes: ["Food", "Horse, dolly", "Tent costs at Panchtarani"],
-        featured: false
-    },
-    {
-        id: 8,
-        title: "Kashmir Trips Package (8 Days, 7 Nights)",
-        destinations: "New Delhi, Katra, Vaishnavodevi, Shivkori, Pahalgam, Gulmarg, Srinagar | New Delhi to New Delhi",
-        duration: "7 Nights/8 Days",
-        price: 18400,
-        category: "adventure",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe A/C rooms", "Good veg food", "A/C vehicle"],
-        excludes: ["Entrance tickets", "Rope car", "Boating", "Horse riding", "Train fare / Flight fare"],
-        featured: true
-    },
-    {
-        id: 9,
-        title: "Kashmir Trip Package (6 Days)",
-        destinations: "New Delhi, Jammu, Srinagar, Pahalgam, Gulmarg | New Delhi to New Delhi",
-        duration: "5 Nights/6 Days",
-        price: 16400,
-        category: "adventure",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe A/C rooms", "Very good veg food", "A/C bus"],
-        excludes: ["Entrance fees", "Rope car", "Boating", "Union vehicles", "Train fare / Flight fare"],
-        featured: false
-    },
-    {
-        id: 10,
-        title: "Kullu Manali Trip",
-        destinations: "New Delhi, Kurukshetra, Chandigarh, Atul Tunnel, Manali, Snow Point, Amritsar | New Delhi to New Delhi",
-        duration: "5 Nights/6 Days",
-        price: 17400,
-        category: "adventure",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe A/C rooms", "Good veg food", "A/C vehicle"],
-        excludes: ["Entrance fee", "Games fee", "Horses", "Boating", "Train fare / Flight fare"],
-        featured: false
-    },
-    {
-        id: 11,
-        title: "Rajasthan Trip",
-        destinations: "Jaipur, Jodhpur, Ajmer, Push Karni, Udaipur, Jaisalmer Sam",
-        duration: "7 Nights/8 Days",
-        price: 23400,
-        category: "adventure",
-        image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star A/C deluxe rooms", "Good veg food", "A/C 2/2-seater bus"],
-        excludes: ["Entrance fee", "Boating", "Camel ride"],
-        featured: false
-    },
-    {
-        id: 12,
-        title: "Sikkim - Darjeeling Trip",
-        destinations: "Kolkata, Siluguri, Darjeeling, Sikkim (Gangtok), Tsangu Lake, Nathulla Pass",
-        duration: "6 Nights/7 Days",
-        price: 18900,
-        category: "adventure",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe accommodation", "Very good veg food", "A/C vehicle"],
-        excludes: ["Games fees", "Entry fees", "Boating", "Special dharshan", "Train fare / Flight fare"],
-        featured: false
-    },
-    {
-        id: 13,
-        title: "Goa Trips",
-        destinations: "North Goa, South Goa",
-        duration: "3 Nights/4 Days",
-        price: 10800,
-        category: "beach",
-        image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe accommodation", "Very good veg food and non veg food", "A/C vehicle"],
-        excludes: ["Games fees", "Entry fees", "Water games", "Train fare / Flight fare"],
-        featured: false
-    },
-    {
-        id: 14,
-        title: "Bhutan Trip",
-        destinations: "Thimphu, Paro, Punakha",
-        duration: "6 Nights/7 Days",
-        price: 25400,
-        category: "international",
-        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe accommodation", "Very good veg food and Non veg food Breakfast & Dinner", "A/C vehicle"],
-        excludes: ["Games fees", "Entry fees", "Personal expenses", "Train fare / Flight fare"],
-        featured: false
-    },
-    {
-        id: 15,
-        title: "Andaman Trips",
-        destinations: "Port Blair, Havelock, Neil Island",
-        duration: "4 Nights/5 Days",
-        price: 16000,
-        category: "beach",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star deluxe hotel", "Very good veg food and Non veg food Breakfast and dinner", "A/C vehicle"],
-        excludes: ["Water games", "Scuba", "Flight fare Chennai to Port Blair", "Train fare / Flight fare"],
-        featured: true
-    },
-    {
-        id: 16,
-        title: "Lakshadweep Trip",
-        destinations: "Agatti, Andham Beach, Lagoon Beach, Kalpitty Island, Thinnakara Island",
-        duration: "3 Nights/4 Days",
-        price: 13500,
-        category: "beach",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["Normal deluxe A/C rooms", "Veg & 2 non-veg meals", "A/C vehicle", "Glass boating"],
-        excludes: ["Flight fares Kochi to Kochi", "Water games", "Train fare / Flight fare"],
-        featured: false
-    },
-    {
-        id: 17,
-        title: "Thailand Trips",
-        destinations: "Pattaya, Bangkok",
-        duration: "4 Nights/5 Days",
-        price: 18000,
-        category: "international",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["3-star hotel", "Very good veg food and Non veg food Breakfast, Lunch and dinner", "A/C vehicle"],
-        excludes: ["Flight fare", "Afternoon lunch", "Train fare / Flight fare"],
-        featured: false
-    },
-    {
-        id: 18,
-        title: "South Tamil Nadu Pilgrimage",
-        destinations: "Tirupathi, Kalahasthi, Tiruttani, Kancheepuram, Tiruvannamalai, Chidambaram, Madurai, Rameswaram",
-        duration: "Variable",
-        price: 0,
-        category: "pilgrimage",
-        image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["2-star hotels EP Plan", "A/C vehicle"],
-        excludes: ["Personal expenses"],
-        featured: false
-    },
-    {
-        id: 19,
-        title: "Kerala Package",
-        destinations: "Ernakulam, Alleppey House Boat, Trivandrum, Kovalam and Varkala ",
-        duration: "4 Nights/5 Days",
-        price: 18000,
-        category: "adventure",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["Boat house accommodation", "Breakfast and Dinner", "Meals", "A/C vehicle"],
-        excludes: ["Personal expenses"],
-        featured: false
-    },
-    {
-        id: 20,
-        title: "Bali Trips",
-        destinations: "Bali Island, Temples, Beaches",
-        duration: "4 Nights/5 Days",
-        price: 13500,
-        category: "international",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["Hotel accommodation", "Breakfast and Dinner very good veg food and Non veg food", "Local transport"],
-        excludes: ["Flight fare", "Lunch and dinner"],
-        featured: false
-    },
-    {
-        id: 21,
-        title: "Vietnam Trips",
-        destinations: "Ho Chi Minh City, Hanoi, Ha Long Bay, Hoi An",
-        duration: "On Request",
-        price: 0,
-        category: "international",
-        image: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["3* Stay", "Breakfast and Dinner very good veg food and Non veg food", "A/C Transport"],
-        excludes: ["Flight fare", "Personal expenses"],
-        featured: false
-    }
-];
-
-// Map local images from img/ folder to packages based on title/ID
-function assignLocalImages() {
-    const idImageMap = {
-        6: 'img/Amarnath snow lingam.png',
-        7: 'img/Amarnath-Yatra-2.png',
-        8: 'img/Srinagar dal lake.png',
-        9: 'img/Dal lake.png'
-    };
-
-    const keywordImageMap = [
-        { key: 'kasi', file: 'img/Kasi gaya.png' },
-        { key: 'chardham', file: 'img/Badrinath Temple.png' },
-        { key: 'mantralaya', file: 'img/Sri Ragavendra.png' },
-        { key: 'shiridi', file: 'img/Shiridi.png' },
-        { key: 'nepal', file: 'img/Nepal Kathmandu.png' },
-        { key: 'dwaraka', file: 'img/Dwaraka.png' },
-        { key: 'pancha dwaraka', file: 'img/Dwaraka.png' },
-        { key: 'kullu manali', file: 'img/Manali snow point.png' },
-        { key: 'rajasthan', file: 'img/Jaisalmer desert 1.png' },
-        { key: 'sikkim', file: 'img/Sikkim Tsomgo Lake.png' },
-        { key: 'darjeeling', file: 'img/Sikkim Tsomgo Lake.png' },
-        { key: 'goa', file: 'img/Goa Calangute Beach.png' },
-        { key: 'bhutan', file: 'img/Buddha golden statue.png' },
-        { key: 'andaman', file: 'img/Andhaman port blair.png' },
-        { key: 'lakshadweep', file: 'img/Lakshadweep Islands.png' },
-        { key: 'thailand', file: 'img/pattaya-beach.png' },
-        { key: 'south tamil nadu', file: 'img/Rameshwaram.png' },
-        // Provisional choices when exact images are not available
-        { key: 'kerala', file: 'img/Bull lake.png' },
-        { key: 'bali', file: 'img/North goa beach.png' }
-    ];
-
-    tourPackages.forEach(pkg => {
-        if (idImageMap[pkg.id]) {
-            pkg.image = idImageMap[pkg.id];
-            return;
-        }
-
-        const title = pkg.title.toLowerCase();
-        const match = keywordImageMap.find(m => title.includes(m.key));
-        if (match) {
-            pkg.image = match.file;
-        }
-    });
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-// Global variables
-let filteredPackages = [...tourPackages];
-let currentPackages = [...tourPackages];
-
-// DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initializeApp();
-});
-
-// Initialize the application
-function initializeApp() {
-    // Ensure local images are used where available
-    assignLocalImages();
-    loadAllPackages();
-    setupEventListeners();
-    setupNavigation();
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
 }
 
-// Setup event listeners
-function setupEventListeners() {
-    // Contact form
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleContactForm);
-    }
-
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', debounce(searchPackages, 300));
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchPackages();
-            }
-        });
-    }
-
-    // Filter change listeners
-    const filters = ['durationFilter', 'priceFilter', 'categoryFilter'];
-    filters.forEach(filterId => {
-        const filter = document.getElementById(filterId);
-        if (filter) {
-            filter.addEventListener('change', applyFilters);
-        }
-    });
-
-    // Modal functionality
-    const modal = document.getElementById('packageModal');
-    const closeBtn = document.querySelector('.close');
-    
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    }
-    
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-    }
-
-    // Escape key to close modal
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-// Setup navigation
-function setupNavigation() {
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Close mobile menu when clicking on links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (navMenu) {
-                navMenu.classList.remove('active');
-            }
-        });
-    });
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
-
-// Load all packages
-function loadAllPackages() {
-    const packagesContainer = document.getElementById('packagesGrid');
-    if (!packagesContainer) return;
-
-    packagesContainer.innerHTML = currentPackages.map(pkg => createPackageCard(pkg)).join('');
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-// Create package card HTML
-function createPackageCard(pkg) {
-    const durationDays = parseInt(pkg.duration.split(' ')[0]);
-    const priceText = pkg.price && pkg.price > 0 ? `₹${pkg.price.toLocaleString()}` : 'On Request';
-    const badgeText = pkg.category === 'international' ? 'International' : 
-                     pkg.category === 'pilgrimage' ? 'Pilgrimage' :
-                     pkg.category === 'adventure' ? 'Adventure' : 'Beach';
-
-    return `
-        <div class="package-card" onclick="openPackageModal(${pkg.id})">
-            <div class="package-image">
-                <img src="${pkg.image}" alt="${pkg.title}" loading="lazy">
-                <div class="package-badge">${badgeText}</div>
-            </div>
-            <div class="package-content">
-                <h3 class="package-title">${pkg.title}</h3>
-                <p class="package-destinations">${pkg.destinations}</p>
-                <div class="package-details">
-                    <div class="package-duration">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>${pkg.duration}</span>
-                    </div>
-                    <div class="package-price">${priceText}</div>
-                </div>
-                <div class="package-features">
-                    <div class="feature-item">
-                        <i class="fas fa-bed"></i>
-                        <span>A/C Rooms</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-utensils"></i>
-                        <span>Veg Meals</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-bus"></i>
-                        <span>Transport</span>
-                    </div>
-                </div>
-                <div class="package-actions">
-                    <button class="btn-outline" onclick="event.stopPropagation(); openPackageModal(${pkg.id})">
-                        <i class="fas fa-info-circle"></i> View Details
-                    </button>
-                    <button class="btn-outline" onclick="event.stopPropagation(); contactForBooking('${pkg.title}')">
-                        <i class="fas fa-phone"></i> Book Now
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-// Open package modal
-function openPackageModal(packageId) {
-    const pkg = tourPackages.find(p => p.id === packageId);
-    if (!pkg) return;
-
-    const modal = document.getElementById('packageModal');
-    const modalContent = document.getElementById('modalContent');
-    
-    if (!modal || !modalContent) return;
-
-    const priceText = pkg.price && pkg.price > 0 ? `₹${pkg.price.toLocaleString()}` : 'On Request';
-    modalContent.innerHTML = `
-        <div class="modal-image">
-            <img src="${pkg.image}" alt="${pkg.title}" />
-        </div>
-        
-        <div class="modal-header">
-            <h2 class="modal-title">${pkg.title}</h2>
-            <p class="modal-subtitle">${pkg.destinations}</p>
-        </div>
-        
-        <div class="price-highlight">
-            <h3>${priceText}${priceText !== 'On Request' ? ' per person' : ''}</h3>
-            <p>${pkg.duration}</p>
-        </div>
-        
-        <div class="modal-details">
-            <div class="detail-section">
-                <h4><i class="fas fa-check-circle"></i> Includes</h4>
-                <ul class="detail-list">
-                    ${pkg.includes.map(item => `<li><i class="fas fa-check"></i> ${item}</li>`).join('')}
-                </ul>
-            </div>
-            
-            <div class="detail-section">
-                <h4><i class="fas fa-times-circle"></i> Excludes</h4>
-                <ul class="detail-list">
-                    ${pkg.excludes.map(item => `<li><i class="fas fa-times"></i> ${item}</li>`).join('')}
-                </ul>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 2rem;">
-            <button class="btn btn-primary" onclick="contactForBooking('${pkg.title}')">
-                <i class="fas fa-phone"></i> Contact for Booking
-            </button>
-        </div>
-    `;
-    
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+.logo-image {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
 }
 
-// Close modal
-function closeModal() {
-    const modal = document.getElementById('packageModal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+.header-logo h1 {
+    color: #ff6b35;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: url('img/Bg1.png') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ff0000; /* red */
+    position: relative;
+    overflow: hidden;
+    padding: 120px 20px 60px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 107, 53, 0.3) 100%);
+    z-index: 1;
+}
+
+/* Image-based animated layer (below content, above overlay) */
+.hero-anim-images {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-anim-images img {
+    position: absolute;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
+    user-select: none;
+}
+
+/* Plane path across the top (awaiting plane image) */
+.anim-plane-img {
+    top: 14%;
+    left: -20%;
+    width: 360px; /* reduced one step */
+    transform: rotate(6deg);
+    animation: planeAcross 18s linear infinite;
+}
+
+/* Helicopter gentle hover mid-right */
+.anim-chopper-img {
+    top: 40%;
+    right: 8%;
+    width: 320px; /* reduced one step */
+    animation: hoverFloat 3.6s ease-in-out infinite;
+}
+
+/* Train running along the bottom */
+.anim-train-img {
+    bottom: 2%; /* pin to bottom */
+    left: 2%;  /* pin to left */
+    width: 520px; /* set a stable size */
+    animation: trainGlide 20s linear infinite; /* move across the bottom */
+    will-change: transform;
+}
+
+@keyframes planeAcross {
+    0% { left: -25%; opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { left: 115%; opacity: 0; }
+}
+
+@keyframes hoverFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes trainRun {
+    0% { left: -30%; }
+    100% { left: 110%; }
+}
+
+/* Transform-based glide to keep layout stable */
+@keyframes trainGlide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(110vw); }
+}
+
+/* Responsive adjustment for very small screens */
+@media (max-width: 600px) {
+    .anim-train-img { width: 300px; bottom: 1.5%; left: 2%; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .hero-anim-images img {
+        animation: none !important;
     }
 }
 
-// Search packages
-function searchPackages() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
-    
-    if (!searchTerm) {
-        currentPackages = [...filteredPackages];
-    } else {
-        currentPackages = filteredPackages.filter(pkg => 
-            pkg.title.toLowerCase().includes(searchTerm) ||
-            pkg.destinations.toLowerCase().includes(searchTerm) ||
-            pkg.category.toLowerCase().includes(searchTerm)
-        );
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3; /* above animated images */
+}
+
+.company-info {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+.company-name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    color: #ff0000; /* red */
+}
+
+.company-location {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #ff0000; /* red */
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.company-address {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 1;
+    line-height: 1.6;
+    color: #ff0000; /* red */
+}
+
+.director-info {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(128, 0, 0, 0.12); /* maroon tint */
+    border-radius: 10px;
+    border-left: 4px solid #800000;
+}
+
+.director-info h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    color: #ff0000; /* red */
+}
+
+.contact-details {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.hero .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.hero .contact-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+}
+
+.hero .contact-item i {
+    font-size: 1.2rem;
+    color: #ff0000; /* red */
+}
+
+.hero .contact-item a {
+    color: #ff0000; /* red */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: none;
+}
+
+.hero .contact-item a:visited,
+.hero .contact-item a:active,
+.hero .contact-item a:focus {
+    color: #ff0000;
+}
+
+.hero .contact-item a:hover {
+    text-decoration: underline;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 180px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: #ff6b35;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-primary:hover {
+    background: #e55a2b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #333;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Hero-specific: Make the home hero 'Book Now' button text red */
+.hero .btn.btn-secondary {
+    color: #ff0000; /* red text */
+    border-color: #ff0000; /* red border */
+}
+
+.hero .btn.btn-secondary:hover {
+    background: #ffffff; /* keep white background for clarity */
+    color: #ff0000; /* keep red text on hover */
+    border-color: #ff0000;
+}
+
+/* Section Styles */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: #e74c3c;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    background: #f7f7f7;
+}
+
+.gallery-item img {
+    max-width: 100%; /* don't overflow the column */
+    width: auto;     /* don't stretch to column width */
+    height: auto;    /* keep original aspect ratio */
+    display: block;
+    margin: 0 auto;  /* center smaller images */
+}
+
+.gallery-item:hover img { transform: none; }
+
+@media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* Packages Section */
+.packages-section {
+    padding: 80px 0;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 16px 18px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+}
+
+.filters select {
+    padding: 12px 44px 12px 14px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    min-width: 180px;
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.filters select:hover {
+    border-color: #dfe3e6;
+}
+
+.filters select:focus {
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.15);
+}
+
+.filters .btn.btn-primary {
+    padding: 12px 22px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #ff6b35, #ff8c3a);
+    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+}
+
+.filters .btn.btn-primary:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #e55a2b, #ff7a22);
+    box-shadow: 0 14px 26px rgba(255, 107, 53, 0.35);
+}
+
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    padding: 8px 10px;
+    border-radius: 40px;
+    border: 1px solid #eee;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #ff6b35, #ff8c3a);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 18px rgba(255, 107, 53, 0.25);
+}
+
+.search-bar button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(255, 107, 53, 0.35);
+}
+
+/* Filters responsive tweaks */
+@media (max-width: 768px) {
+    .filters {
+        padding: 14px;
+        gap: 0.75rem;
     }
-    
-    loadAllPackages();
-    
-    // Show search results message
-    const packagesContainer = document.getElementById('packagesGrid');
-    if (packagesContainer && currentPackages.length === 0) {
-        packagesContainer.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
-                <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
-                <h3>No packages found</h3>
-                <p>Try adjusting your search terms or filters.</p>
-            </div>
-        `;
+    .filters select {
+        min-width: unset;
+        flex: 1 1 100%;
+        width: 100%;
+    }
+    .filters .btn.btn-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
     }
 }
 
-// Apply filters
-function applyFilters() {
-    const durationFilter = document.getElementById('durationFilter').value;
-    const priceFilter = document.getElementById('priceFilter').value;
-    const categoryFilter = document.getElementById('categoryFilter').value;
-    
-    filteredPackages = tourPackages.filter(pkg => {
-        let matches = true;
-        
-        // Duration filter
-        if (durationFilter) {
-            const packageDays = parseInt(pkg.duration.split(' ')[0]);
-            // If duration is non-numeric (e.g., 'On Request'), skip duration filtering for this package
-            if (!isNaN(packageDays)) {
-                switch(durationFilter) {
-                    case '3-4':
-                        matches = matches && (packageDays >= 3 && packageDays <= 4);
-                        break;
-                    case '5-6':
-                        matches = matches && (packageDays >= 5 && packageDays <= 6);
-                        break;
-                    case '7-8':
-                        matches = matches && (packageDays >= 7 && packageDays <= 8);
-                        break;
-                    case '9+':
-                        matches = matches && (packageDays >= 9);
-                        break;
-                }
-            }
-        }
-        
-        // Price filter
-        if (priceFilter) {
-            switch(priceFilter) {
-                case '0-15000':
-                    matches = matches && (pkg.price < 15000);
-                    break;
-                case '15000-20000':
-                    matches = matches && (pkg.price >= 15000 && pkg.price < 20000);
-                    break;
-                case '20000-25000':
-                    matches = matches && (pkg.price >= 20000 && pkg.price < 25000);
-                    break;
-                case '25000+':
-                    matches = matches && (pkg.price >= 25000);
-                    break;
-            }
-        }
-        
-        // Category filter
-        if (categoryFilter) {
-            matches = matches && (pkg.category === categoryFilter);
-        }
-        
-        return matches;
-    });
-    
-    // Reset search and apply filters
-    document.getElementById('searchInput').value = '';
-    currentPackages = [...filteredPackages];
-    loadAllPackages();
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
 }
 
-// Contact for booking
-function contactForBooking(packageName) {
-    const phone = '+919790835042';
-    const message = `Hi, I'm interested in booking the ${packageName} package. Please provide more details.`;
-    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    
-    // Try WhatsApp first, fallback to phone call
-    window.open(whatsappUrl, '_blank') || window.open(`tel:${phone}`, '_self');
-    
-    // Also scroll to contact section
-    setTimeout(() => {
-        scrollToSection('contact');
-    }, 1000);
+.package-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-// Handle contact form submission
-function handleContactForm(e) {
-    e.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        packageInterest: document.getElementById('packageInterest').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Simulate form submission
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    
-    submitBtn.innerHTML = '<div class="loading"></div> Sending...';
-    submitBtn.disabled = true;
-    
-    setTimeout(() => {
-        alert('Thank you for your inquiry! We will contact you soon.');
-        e.target.reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-// Scroll to section
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        const navHeight = document.querySelector('.navbar').offsetHeight;
-        const sectionTop = section.offsetTop - navHeight;
-        
-        window.scrollTo({
-            top: sectionTop,
-            behavior: 'smooth'
-        });
+.package-image {
+    height: 200px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    position: relative;
+    overflow: hidden;
+}
+
+.package-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.package-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e74c3c;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.package-content {
+    padding: 1.5rem;
+}
+
+.package-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.package-destinations {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.package-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.package-duration {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.package-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+.package-features {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.package-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #ff6b35;
+    border: 2px solid #ff6b35;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    flex: 1;
+    text-align: center;
+}
+
+.btn-outline:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+/* Make only the Book Now button text red */
+.package-actions .btn-outline[onclick*="contactForBooking"] {
+    color: #ff0000; /* red */
+    border-color: #ff0000; /* red border to match */
+}
+
+.package-actions .btn-outline[onclick*="contactForBooking"]:hover {
+    background: #ffffff; /* keep white background on hover for contrast */
+    color: #ff0000; /* keep font red on hover */
+    border-color: #ff0000;
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.about-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.about-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-intro h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.about-intro p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem 1rem;
+    margin-top: 1.25rem;
+}
+
+.about-highlights .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+.about-highlights .highlight-item i {
+    color: #e74c3c;
+}
+
+.about-highlights .highlight-item span {
+    color: #333;
+    font-weight: 500;
+}
+
+.about-stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    min-width: 120px;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.about-hero-image {
+    position: relative;
+}
+
+.about-hero-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.about-hero-image img:hover {
+    transform: scale(1.02);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #e74c3c;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.service-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.service-content h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.service-content p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.about-cta {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c00 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
+}
+
+.about-cta h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.about-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.cta-buttons .btn {
+    min-width: 200px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.cta-buttons .btn-primary {
+    background: white;
+    color: #ff6b35;
+    border: none;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.cta-buttons .btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+
+.cta-buttons .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    box-shadow: none;
+}
+
+.cta-buttons .btn-secondary:hover {
+    background: white;
+    color: #ff6b35;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-section .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #f3f4f6; /* light neutral for contrast */
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.contact-section .contact-item i {
+    font-size: 1.5rem;
+    color: #e74c3c;
+    margin-top: 0.2rem;
+}
+
+.contact-section .contact-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: #222; /* higher contrast */
+}
+
+.contact-section .contact-item p {
+    color: #2d3748; /* stronger contrast */
+}
+
+.contact-section .contact-item a {
+    color: #b23a1e; /* darker brand tone for contrast on light bg */
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-section .contact-item a:hover {
+    text-decoration: underline;
+}
+
+.contact-section .contact-item a:focus {
+    outline: 3px solid rgba(178, 58, 30, 0.3);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.contact-form {
+    background: #f7f7f7; /* higher-contrast background */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e74c3c;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: #ff6b35;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: white;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section i {
+    margin-right: 8px;
+    color: #ff6b35;
+}
+
+.footer-bottom {
+    border-top: 1px solid #34495e;
+    padding-top: 1rem;
+    text-align: center;
+    color: #bdc3c7;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+.close:hover {
+    color: #ff6b35;
+}
+
+.modal-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.modal-image img:hover {
+    transform: scale(1.05);
+}
+
+.modal-header {
+    margin-bottom: 2rem;
+}
+
+.modal-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.modal-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.detail-section h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-list li:last-child {
+    border-bottom: none;
+}
+
+.detail-list i {
+    color: #e74c3c;
+    width: 16px;
+}
+
+.price-highlight {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.price-highlight h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-highlight p {
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group select {
+        min-width: auto;
+    }
+
+    .about-hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-stats {
+        justify-content: center;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cta {
+        padding: 2rem;
+    }
+
+    .about-cta h3 {
+        font-size: 1.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .modal-details {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 1.5rem;
     }
 }
 
-// Debounce function for search
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            scrollToSection(targetId);
-        });
-    });
-});
-
-// Add scroll effect to navbar
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
     }
-});
 
-// Add loading animation for images
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
-        img.addEventListener('error', function() {
-            this.src = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80';
-        });
-    });
-});
+    .section-title {
+        font-size: 2rem;
+    }
 
-// Initialize animations on scroll
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe package cards
-    document.querySelectorAll('.package-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .package-card {
+        margin: 0 10px;
+    }
 }
 
-// Call scroll animations after packages are loaded
-setTimeout(initScrollAnimations, 100);
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #e74c3c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e74c3c;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c0392b;
+}
