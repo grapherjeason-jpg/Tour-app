@@ -5,7 +5,7 @@ const tourPackages = [
         title: "Kasi Trips",
         destinations: "Ayodhya, Prayagraj, Varanasi, Triveni Sangamam, Gaya, Bodh Gaya",
         duration: "5 Days/4 Nights",
-        price: 16400,
+        price: 16000,
         category: "pilgrimage",
         image: "https://images.unsplash.com/photo-1609920658906-8223bd289001?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2nd class sleeper train", "Deluxe A/C room double sharing", "Veg food", "A/C vehicle"],
@@ -29,7 +29,7 @@ const tourPackages = [
         title: "Mantralaya-Shiridi Trips",
         destinations: "Mantralayam, Panchamukhi, Bitchalaya, Solapur, Tuljapur, Siddeswara, Shiridi",
         duration: "5 Nights/6 Days",
-        price: 12800,
+        price: 14000,
         category: "pilgrimage",
         image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2nd class sleeper train", "Good veg food", "A/C Bus 2/2-Seater", "Deluxe A/C rooms"],
@@ -173,7 +173,7 @@ const tourPackages = [
         title: "Andaman Trips",
         destinations: "Port Blair, Havelock, Neil Island",
         duration: "4 Nights/5 Days",
-        price: 16000,
+        price: 15000,
         category: "beach",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["2-star deluxe hotel", "Very good veg food and Non veg food Breakfast and dinner", "A/C vehicle"],
@@ -185,7 +185,7 @@ const tourPackages = [
         title: "Lakshadweep Trip",
         destinations: "Agatti, Andham Beach, Lagoon Beach, Kalpitty Island, Thinnakara Island",
         duration: "3 Nights/4 Days",
-        price: 13500,
+        price: 14000,
         category: "beach",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         includes: ["Normal deluxe A/C rooms", "Veg & 2 non-veg meals", "A/C vehicle", "Glass boating"],
@@ -228,30 +228,7 @@ const tourPackages = [
         excludes: ["Personal expenses"],
         featured: false
     },
-    {
-        id: 20,
-        title: "Bali Trips",
-        destinations: "Bali Island, Temples, Beaches",
-        duration: "4 Nights/5 Days",
-        price: 13500,
-        category: "international",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["Hotel accommodation", "Breakfast and Dinner very good veg food and Non veg food", "Local transport"],
-        excludes: ["Flight fare", "Lunch and dinner"],
-        featured: false
-    },
-    {
-        id: 21,
-        title: "Vietnam Trips",
-        destinations: "Ho Chi Minh City, Hanoi, Ha Long Bay, Hoi An",
-        duration: "On Request",
-        price: 0,
-        category: "international",
-        image: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        includes: ["3* Stay", "Breakfast and Dinner very good veg food and Non veg food", "A/C Transport"],
-        excludes: ["Flight fare", "Personal expenses"],
-        featured: false
-    }
+    
 ];
 
 // Map local images from img/ folder to packages based on title/ID
@@ -283,7 +260,7 @@ function assignLocalImages() {
         { key: 'south tamil nadu', file: 'img/Rameshwaram.png' },
         // Provisional choices when exact images are not available
         { key: 'kerala', file: 'img/Bull lake.png' },
-        { key: 'bali', file: 'img/North goa beach.png' }
+        
     ];
 
     tourPackages.forEach(pkg => {
